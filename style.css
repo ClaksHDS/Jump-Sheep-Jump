@@ -1,0 +1,179 @@
+
+:root{
+    --fluff-size: 70px;
+    --ear-width: 15px;
+    --ear-height: 20px;
+}
+
+body{
+    background: rgb(38, 92, 63);
+}
+
+h2{
+    word-spacing: 0.5px;
+    color: rgb(247, 178, 51);
+    font-size: 35px;
+    padding: 15px 50px;
+}
+
+.obstacle{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(168, 121, 35);
+    bottom: 0px;
+}
+.sheep-container{
+    position: absolute;
+    bottom: 0px;
+}
+.sheep{
+    position: relative;
+    margin: auto;
+    display: block;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    width: 180px;
+    height: 180px;
+}
+
+/* Middle fluff : both left & right fluff circles share this style  */
+.fluff{
+    position: absolute;
+    width: var(--fluff-size);
+    height: var(--fluff-size);
+    border-radius: 50%;
+    background: rgb(236, 231, 233);
+    top: 50px;
+}
+/* Right middle fluff only, it places the right-hand section of fluff over to the right*/
+.fluff.right{
+    right: 0;
+}
+
+/* Upper fluff - styles are shared between the first child of both left & right fluff*/
+.fluff::before{
+    content: "";
+    position: absolute;
+    width: var(--fluff-size);
+    height: var(--fluff-size);
+    border-radius: 50%;
+    background: rgb(236, 231, 233);
+    top: -35px;
+}
+
+/* Upper-left fluff only*/
+
+.fluff.left::before{
+    left: 35px;
+}
+/*Upper-right fluff only*/
+
+.fluff.right::before{
+    left: -35px;
+}
+
+/* Lower fluff - styles are shared between the last child of both left & right fluff*/
+
+.fluff::after{
+    content: "";
+    top: 35px;
+    position: absolute;
+    width: var(--fluff-size);
+    height: var(--fluff-size);
+    border-radius: 50%;
+    background: rgb(236, 231, 233);
+}
+
+/*Lower-left fluff*/
+.fluff.left::after{
+    left: 35px;
+}
+/*Lower-right fluff*/
+.fluff.right::after{
+    left: -35px;
+}
+
+.head{
+    position: absolute;
+    left: 50%;
+    top: 52.5px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    background: rgb(31, 32, 32);
+    border-radius: 50%;
+}
+
+/*Left ear*/
+
+.head::before{
+    content: "";
+    position: absolute;
+    background: rgb(31, 32, 32);
+    width: var(--ear-width);
+    height: var(--ear-height);
+    border-radius: 50%;
+    top: -5px;
+    left: 5px;
+}
+
+.head::after{
+    content: "";
+    position: absolute;
+    background: rgb(31, 32, 32);
+    width: var(--ear-width);
+    height: var(--ear-height);
+    border-radius: 50%;
+    top: -5px;
+    right: 5px;
+}
+
+.eye{
+    position: absolute;
+    background: rgb(31, 32, 32);
+    border: 5px solid rgb(236, 231, 233);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    top: 15px;
+}
+
+/* To position the left eye */
+.eye.left{
+    left:10px;
+}
+/*To position the right eye*/
+.eye.right{
+    right: 10px;
+}
+
+.mouth{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(236, 231, 233);
+    width: 30px;
+    height: 30px;
+    clip-path: circle(50% at 50% 0);
+    top: 43.5px;
+}
+
+.leg{
+    position: absolute;
+    top: 120px;
+    height: 50px;
+    width: 15px;
+    background: rgb(31, 32, 32);
+    border-radius: 30%;
+}
+
+.leg.left{
+    left: 30%;
+    transform: translateX(-30%);
+}
+
+.leg.right{
+    right: 30%;
+    transform: translateX(30%);
+}
